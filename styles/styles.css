@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+
+}
+
+.subtitle{
+    font-size:21px;  
+}
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+.container__text {
+    width:200px;
+    background: rgb(192, 187, 187);
+    color: black;
+    font-size: 16px;
+}
+.container__btn{
+    margin-top:10px;
+    width:100px;
+    background-color: rgb(16, 161, 161);
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    bor
+}
+.count,.clue{
+    border: rgb(172, 168, 168) 2px solid;
+    font-size: 16px;
+}
+
