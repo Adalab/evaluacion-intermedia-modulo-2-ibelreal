@@ -5,7 +5,7 @@ const clue = document.querySelector('.js-clue');
 const count = document.querySelector('.js-count');
 let nClicks = 0;
 
-//funcion para el numero random
+//función para el numero random
 const getRandomNumber = function (max) {
     return Math.ceil(Math.random() * max);
 }
@@ -14,22 +14,28 @@ const getRandomNumber = function (max) {
 const random = getRandomNumber(100);
 console.log('El número random es: ' + random);
 
-//función es el número usuario más grande que el número random(?)
+//función que escribe el string en pista 
+function addString(phrase) {
+    clue.innerHTML = phrase;
+}
+
+//función es el número usuario más grande que el número random
 const isBiggerThanMe = function (num) {
     if (num > random) {
-        clue.innerHTML = 'Demasiado alto';
+
+        addString('Demasiado alto');
         nClicks = nClicks + 1;
     }
     else {
-        clue.innerHTML = 'Demasiado bajo';
+        addString('Demasiado bajo');
         nClicks = nClicks + 1;
     }
 }
 
-//función es el número del usuario mi número random(?)
+//función es el número del usuario mi número random
 const isMyNumber = function (num) {
     if (num == random) {
-        clue.innerHTML = 'Has ganado campeona!!';
+        addString('Has ganado campeona!!');
         nClicks = nClicks + 1;
     }
     else {
@@ -37,19 +43,19 @@ const isMyNumber = function (num) {
     }
 }
 
-//función es el número del usuario un número naturañ entre 1 y 100(?)
+//función es el número del usuario un número natural entre 1 y 100
 const isACorrectNumber = function (num) {
     if (num > 0 && num <= 100) {
         isMyNumber(num);
     }
     else {
-        clue.innerHTML = 'El número debe estar entre 1 y 100';
+        addString('El número debe estar entre 1 y 100');
     }
 }
 
 //función que se ejecuta tras ser llamada por el evento
 const checkNumber = function () {
-    const value = numberUser.value;
+    const value = parseInt(numberUser.value);
     isACorrectNumber(value);
     count.innerHTML = nClicks;
 }
